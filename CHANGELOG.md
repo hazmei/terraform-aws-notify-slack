@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [6.4.0](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/compare/v6.3.0...v6.4.0) (2024-04-24)
+
+
+### Features
+
+* Improved AWS backup notification readability ([#222](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/issues/222)) ([27d1c46](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/commit/27d1c464f80708740d8d155e7cb11367b41bab6c))
+
+## [6.3.0](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/compare/v6.2.0...v6.3.0) (2024-04-22)
+
+
+### Features
+
+* Update Python lambda runtime from `3.8` to `3.11` ([#225](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/issues/225)) ([b4ef4e4](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/commit/b4ef4e45e9f3dafb774ccf62d9473b338de68f3f))
+
+## [6.2.0](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/compare/v6.1.2...v6.2.0) (2024-04-22)
+
+
+### Features
+
+* Added architecture variable ([#224](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/issues/224)) ([1ae3ab7](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/commit/1ae3ab7e084341e7a1fd3acccb15d2971020fce5))
+
+## [6.1.2](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/compare/v6.1.1...v6.1.2) (2024-03-26)
+
+
+### Bug Fixes
+
+* Correct assume role permissions for SNS service to assume IAM role ([#220](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/issues/220)) ([dae0c0f](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/commit/dae0c0f49d41cf98c5e31af7912ed406eea81c83))
+
+## [6.1.1](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/compare/v6.1.0...v6.1.1) (2024-03-06)
+
+
+### Bug Fixes
+
+* Update CI workflow versions to remove deprecated runtime warnings ([#218](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/issues/218)) ([44edd19](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/commit/44edd191bac2812951faea9562c685fbeeeefee8))
+
 ## [6.1.0](https://github.com/terraform-aws-modules/terraform-aws-notify-slack/compare/v6.0.0...v6.1.0) (2023-12-11)
 
 

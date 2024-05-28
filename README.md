@@ -8,7 +8,7 @@ Doing serverless with Terraform? Check out [serverless.tf framework](https://ser
 
 ## Supported Features
 
-- AWS Lambda runtime Python 3.8
+- AWS Lambda runtime Python 3.11
 - Create new SNS topic or use existing one
 - Support plaintext and encrypted version of Slack webhook URL
 - Most of Slack message options are customizable
@@ -17,7 +17,6 @@ Doing serverless with Terraform? Check out [serverless.tf framework](https://ser
   - AWS CloudWatch Alarms
   - AWS CloudWatch LogMetrics Alarms
   - AWS GuardDuty Findings
-
 
 ## Usage
 
@@ -38,11 +37,11 @@ module "notify_slack" {
 
 [Terraform Cloud Agents](https://www.terraform.io/docs/cloud/workspaces/agent.html) are a paid feature, available as part of the Terraform Cloud for Business upgrade package.
 
-This module requires Python 3.8. You can customize [tfc-agent](https://hub.docker.com/r/hashicorp/tfc-agent) to include Python using this sample `Dockerfile`:
+This module requires Python 3.11. You can customize [tfc-agent](https://hub.docker.com/r/hashicorp/tfc-agent) to include Python using this sample `Dockerfile`:
 
-```
+```Dockerfile
 FROM hashicorp/tfc-agent:latest
-RUN apt-get -y update && apt-get -y install python3.8 python3-pip
+RUN apt-get -y update && apt-get -y install python3.11 python3-pip
 ENTRYPOINT ["/bin/tfc-agent"]
 ```
 
@@ -98,6 +97,7 @@ See the [functions](https://github.com/terraform-aws-modules/terraform-aws-notif
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_architectures"></a> [architectures](#input\_architectures) | Instruction set architecture for your Lambda function. Valid values are ["x86\_64"] and ["arm64"]. | `list(string)` | `null` | no |
 | <a name="input_cloudwatch_log_group_kms_key_id"></a> [cloudwatch\_log\_group\_kms\_key\_id](#input\_cloudwatch\_log\_group\_kms\_key\_id) | The ARN of the KMS Key to use when encrypting log data for Lambda | `string` | `null` | no |
 | <a name="input_cloudwatch_log_group_retention_in_days"></a> [cloudwatch\_log\_group\_retention\_in\_days](#input\_cloudwatch\_log\_group\_retention\_in\_days) | Specifies the number of days you want to retain log events in log group for Lambda. | `number` | `0` | no |
 | <a name="input_cloudwatch_log_group_tags"></a> [cloudwatch\_log\_group\_tags](#input\_cloudwatch\_log\_group\_tags) | Additional tags for the Cloudwatch log group | `map(string)` | `{}` | no |

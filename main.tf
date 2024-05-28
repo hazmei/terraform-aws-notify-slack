@@ -93,7 +93,8 @@ module "lambda" {
   s3_existing_package            = var.s3_existing_package
   create_package                 = var.s3_existing_package == null
   recreate_missing_package       = var.recreate_missing_package
-  runtime                        = "python3.8"
+  runtime                        = "python3.11"
+  architectures                  = var.architectures
   timeout                        = 30
   kms_key_arn                    = var.kms_key_arn
   reserved_concurrent_executions = var.reserved_concurrent_executions
