@@ -64,6 +64,12 @@ variable "lambda_attach_dead_letter_policy" {
   default     = false
 }
 
+variable "region" {
+  description = "Region where the resource(s) will be managed. Defaults to the region set in the provider configuration"
+  type        = string
+  default     = null
+}
+
 variable "sns_topic_name" {
   description = "The name of the SNS topic to create"
   type        = string

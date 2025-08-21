@@ -1,6 +1,8 @@
 data "aws_caller_identity" "current" {}
 data "aws_partition" "current" {}
-data "aws_region" "current" {}
+data "aws_region" "current" {
+  region = var.region
+}
 
 locals {
   create = var.create && var.putin_khuylo
@@ -54,6 +56,8 @@ data "aws_iam_policy_document" "lambda" {
 resource "aws_cloudwatch_log_group" "lambda" {
   count = var.create ? 1 : 0
 
+  region = var.region
+
   name              = "/aws/lambda/${var.lambda_function_name}"
   retention_in_days = var.cloudwatch_log_group_retention_in_days
   kms_key_id        = var.cloudwatch_log_group_kms_key_id
@@ -63,6 +67,8 @@ resource "aws_cloudwatch_log_group" "lambda" {
 
 resource "aws_sns_topic" "this" {
   count = var.create_sns_topic && var.create ? 1 : 0
+
+  region = var.region
 
   name = var.sns_topic_name
 
@@ -79,6 +85,8 @@ resource "aws_sns_topic" "this" {
 resource "aws_sns_topic_subscription" "sns_notify_slack" {
   count = var.create ? 1 : 0
 
+  region = var.region
+
   topic_arn           = local.sns_topic_arn
   protocol            = "lambda"
   endpoint            = module.lambda.lambda_function_arn
@@ -91,6 +99,7 @@ module "lambda" {
   version = "8.0.1"
 
   create = var.create
+  region = var.region
 
   function_name = var.lambda_function_name
   description   = var.lambda_description
